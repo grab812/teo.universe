@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import '_swiper.min.scss';
+@import '_common.scss';
+@import '_mixin.scss';
+@import '_header.scss';
+
+// WebFonts
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap);
+
+@keyframes mainvisualTextAni {
+	0% { background-position: 105% 0; }
+	20% { background-position: 50% 0; }
+	50% { background-position: 50% 0; }
+	60% { background-position: -5% 0; }
+	100% { background-position: -5% 0; }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    // background-color: #050000;
+}
+p {
+    margin: 0;
+}
+em, a {
+    font-style: inherit;
+    text-decoration: none;
+}
+.hide {
+    @include font-hide;
+}
+section {
+    position: relative;
+}
+button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+}
+@keyframes down {
+	0% {
+		transform: translate(0);
+	}
+	20% {
+		transform: translateY(3px);
+	}
+	40% {
+		transform: translate(0);
+	}
+}
+#teo {
+
+}
