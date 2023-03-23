@@ -3,6 +3,7 @@
 @import '_common.scss';
 @import '_mixin.scss';
 @import '_header.scss';
+@import '_footer.scss';
 
 // WebFonts
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap);
@@ -59,5 +60,251 @@ button {
 	}
 }
 #teo {
-
+    /* go top btn */
+    .page-top-btn {
+        position: fixed;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+        transition: all 0.3s cubic-bezier(0.46, 0.06, 0, 1.37);
+        transition-timing-function: cubic-bezier(0.42, 0, 0, 1.29);
+        z-index: 100;
+        &.show {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        >button {
+            display: block;
+            width: 2.125rem;
+            height: 2.125rem;
+            text-indent: -999em;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14.2'%3E%3Cpath fill='%23fff' d='M11 5.5l-.7.7L6 2v12.3H5V2L.7 6.2 0 5.5 5.5 0 11 5.5z'/%3E%3C/svg%3E");
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 13px auto;
+            background-color: #0a0a0a;
+            border-radius: 100%;
+        }
+        @include tablet() {
+            bottom: 1.875rem;
+            >button {
+                width: 3.125rem;
+                height: 3.125rem;
+                background-size: 18px auto;
+            }
+        }
+    }
+    // 공지 팝업
+    .event-popup {
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        display: flex;
+        padding: 10px 30px 10px 15px;
+        width: 70%;
+        // height: 44px;
+        top: 55px;
+        right: 4%;
+        box-sizing: border-box;
+        z-index: 100;
+        &::before {
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: .5rem;
+        }
+        &.hide {
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .event-title, a{
+            float: left;
+            color: #000000;
+            font-weight: 400;
+            z-index: 5;
+        }
+        .event-title {
+            padding: 0 5px 5px 0;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .event-cnt {
+            position: relative;
+            display: block;
+            margin: 0;
+            position: relative;
+            padding-top: 5px;
+            width: 100%;
+            float: left;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                margin-top: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #9b9b9c;
+                opacity: .25;
+            }
+            a {
+                width: 100%;
+            }
+        }
+        .event-close {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            width: 18px;
+            height: 18px;
+            text-indent: -9999px;
+            font-size: 0;
+            line-height: 0;
+            &:before, &:after {
+                position: absolute;
+                left: 8px;
+                content: ' ';
+                height: 18px;
+                width: 2px;
+                background-color: #000000;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    // 이미지 뉴스 팝업
+    .news-popup-wrap {
+        // transition: visibility 0s linear 0.2s, opacity 0.2s, transform 0.2s;
+        // transform: perspective(1px) translate3d(0, calc(0), 0);
+        .news-popup {
+            opacity: 1;
+            transform: scale(1) translate(-50%, -50%);
+            transition: all .3s;
+        }
+        &.hide {
+            visibility: hidden;
+            opacity: 0;
+            .news-popup {
+                opacity: 0;
+                transform: scale(.5) translate(-50%, -50%);
+            }
+        }
+        .news-dimm {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100vh;
+            min-height: 100vh;
+            min-height: -webkit-fill-available; 
+            background-color: #000000;
+            opacity: .7;
+            z-index: 10000;
+        }
+        .news-popup {
+            position: fixed;
+            width: 84%;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            z-index: 10000;
+            @include landscape(){
+                width: auto;
+                height: 85vh;
+            }
+            .event-cnt {
+                width: 100%;
+                height: 100%;
+            }
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            img {
+                display: block;
+                width: 100%;
+                @include landscape(){
+                    width: auto;
+                    height: 100%;
+                }
+            }
+            .news-close {
+                position: absolute;
+                right: 0px;
+                top: -25px;
+                width: 15px;
+                height: 15px;
+                text-indent: -9999px;
+                font-size: 0;
+                line-height: 0;
+                padding: 5px;
+                box-sizing: content-box;
+                &:before, &:after {
+                    position: absolute;
+                    top: 0;
+                    left: 11px;
+                    content: ' ';
+                    height: 23px;
+                    width: 2px;
+                    background-color: #ffffff;
+                }
+                &:before {
+                    transform: rotate(45deg);
+                }
+                &:after {
+                    transform: rotate(-45deg);
+                }
+            }
+            .popup-check {
+                padding: 0 10px;
+                text-align: right;
+                .popup-input {
+                    top: 0px;
+                    left: 0px;
+                    opacity: 0;
+                    z-index: 1;
+                }
+                .popup-label {
+                    position: relative;
+                    padding: 0 0 5px 25px;
+                    margin-left: 5px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                    letter-spacing: -1px;
+                    line-height: 1.5;
+                    background: url(../images/icon_channel_back.png) no-repeat 0 0;
+                    cursor: pointer;
+                    display: inline-block;
+                    z-index: 20;
+                    &.selected span {
+                        display: block;
+                    }
+                    span {
+                        position: absolute;
+                        left: 0px;
+                        top: -2px;
+                        width: 23px;
+                        height: 19px;
+                        background: url(../images/icon_channel_checked.png) no-repeat 0 0;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
