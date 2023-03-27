@@ -13,9 +13,9 @@
 ## Directories
 * src : UI 작업
   * 공통
-    * src/includes/metahead : metatag
-    * src/includes/header : header
-    * src/includes/footer : footer
+    * src/includes/metahead : 메타태그
+    * src/includes/header : 헤더
+    * src/includes/footer : 푸터
   * 페이지
     * src/index : 메인
     <!-- * src/info : 제작사소개
