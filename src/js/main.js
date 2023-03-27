@@ -1,29 +1,29 @@
 // window onload
 $(function() {
 
-  // lazyload
-  var lazyAll = new LazyLoad();
-  // IE 이미지 objectfit
-  objectFitImages(document.querySelector('.objectFit'));
+    // lazyload
+    var lazyAll = new LazyLoad();
+    // IE 이미지 objectfit
+    objectFitImages(document.querySelector('.objectFit'));
 
-  // nav toggle
-  navToggle();
+    // Nav 토글버튼
+    navToggle();
 
-  /* 
+    // news popup - 뉴스 이미지팝업닫기
+    newsMobalCLose();
 
-  // go top btn - 상단이동버튼
-  goToTop();
+    // notice popup - 공지팝업닫기
+    noticeMobalCLose();
 
-  // notice popup - 공지팝업닫기
-  noticeMobalCLose();
+    /* 
 
-  // news popup - 뉴스 이미지팝업닫기
-  newsMobalCLose();
+    // go top btn - 상단이동버튼
+    goToTop();
 
-  // 상단 Top Visual Swiper
-  mainvisualSwipe();
+    // 상단 Top Visual Swiper
+    mainvisualSwipe();
 
-  */  
+    */  
 
 
 });	

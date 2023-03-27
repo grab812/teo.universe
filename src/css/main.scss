@@ -101,16 +101,24 @@ button {
     // 공지 팝업
     .event-popup {
         position: fixed;
+        padding: 20px 15px;
         flex-direction: column;
         align-items: flex-start;
         display: flex;
-        padding: 10px 30px 10px 15px;
-        width: 70%;
-        // height: 44px;
-        top: 55px;
-        right: 4%;
+        width: 280px;
+        top: 203px;
+        left: 50%;
+        transform: translateX(285px);
         box-sizing: border-box;
         z-index: 100;
+        @include mobile(){
+            padding: 10px 30px 10px 15px;
+            width: 70%;
+            top: 55px;
+            right: 4%;
+            left: unset;
+            transform: none;
+        }
         &::before {
             display: block;
             content: '';
@@ -136,16 +144,22 @@ button {
         .event-title {
             padding: 0 5px 5px 0;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 1.125rem;
+            @include mobile(){
+                font-size: 0.875rem;
+            }
         }
         .event-cnt {
             position: relative;
             display: block;
             margin: 0;
             position: relative;
-            padding-top: 5px;
+            padding-top: 10px;
             width: 100%;
             float: left;
+            @include mobile(){
+                padding-top: 5px;
+            }
             &::before {
                 content: '';
                 position: absolute;
@@ -159,17 +173,22 @@ button {
             }
             a {
                 width: 100%;
+                font-size: 1rem;
             }
         }
         .event-close {
             position: absolute;
-            right: 10px;
-            top: 12px;
+            top: 22px;
+            right: 15px;
             width: 18px;
             height: 18px;
             text-indent: -9999px;
             font-size: 0;
             line-height: 0;
+            @include mobile(){
+                top: 12px;
+                right: 10px;
+            }
             &:before, &:after {
                 position: absolute;
                 left: 8px;
@@ -206,6 +225,7 @@ button {
         .news-dimm {
             position: fixed;
             display: block;
+            top: 0;
             width: 100%;
             height: 100vh;
             min-height: 100vh;
@@ -216,6 +236,8 @@ button {
         }
         .news-popup {
             position: fixed;
+            max-width: 540px;
+            max-height: 630px;
             width: 84%;
             top: 50%;
             left: 50%;
@@ -245,9 +267,9 @@ button {
             .news-close {
                 position: absolute;
                 right: 0px;
-                top: -25px;
-                width: 15px;
-                height: 15px;
+                top: -30px;
+                width: 20px;
+                height: 20px;
                 text-indent: -9999px;
                 font-size: 0;
                 line-height: 0;
@@ -255,7 +277,7 @@ button {
                 box-sizing: content-box;
                 &:before, &:after {
                     position: absolute;
-                    top: 0;
+                    top: 4px;
                     left: 11px;
                     content: ' ';
                     height: 23px;
@@ -270,9 +292,11 @@ button {
                 }
             }
             .popup-check {
-                padding: 0 10px;
+                position: relative;
+                padding: 5px;
                 text-align: right;
                 .popup-input {
+                    display: none;
                     top: 0px;
                     left: 0px;
                     opacity: 0;
@@ -280,13 +304,13 @@ button {
                 }
                 .popup-label {
                     position: relative;
-                    padding: 0 0 5px 25px;
+                    padding: 0 0 0 23px;
                     margin-left: 5px;
-                    font-size: 0.75rem;
+                    font-size: 0.875rem;
                     font-weight: 600;
                     color: #ffffff;
                     letter-spacing: -1px;
-                    line-height: 1.5;
+                    line-height: 1.2;
                     background: url(../images/icon_channel_back.png) no-repeat 0 0;
                     cursor: pointer;
                     display: inline-block;

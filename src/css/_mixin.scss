@@ -5,16 +5,29 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $gap: 70px;
 $gap-mobile: 50px;
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: $breakpoint-tablet - 1) {
+        @content;
+    }
+}
+
+/*
 @mixin mobile {
     @media (max-width: $breakpoint-mobile - 1) {
         @content;
     }
-}
+}*/
 @mixin mobileView {
     @media (max-width: $breakpoint-desktop - 1) {
         @content;
     }
 }
+// 테블릿 세로모드
 @mixin tablet {
     @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1){
         @content;
@@ -26,8 +39,30 @@ $gap-mobile: 50px;
         @content;
     }
 }
+// 데스크탑
 @mixin desktop {
     @media (min-width: $breakpoint-desktop){
+        @content;
+    }
+}
+// Z Flip 세로모드
+@mixin ZFlip {
+    @media only screen and (min-width: 412px) and (orientation: portrait) { 
+        @content;
+    }
+}
+// Z Flip 가로모드
+@mixin ZFlipLand {
+    @media only screen and (min-width: 1004px) and (orientation: landscape) { 
+        @content;
+    }
+}
+// ios X 세로모드
+@mixin iosX {
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
         @content;
     }
 }

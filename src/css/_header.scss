@@ -184,7 +184,7 @@ nav {
 @media only screen and (min-width: 960px) {
 	nav { display: block !important }
 }
-@media only screen and (max-width: 959px) {
+@include mobile(){
     #header ,#header section {
         position: relative;
         width: 100%;
