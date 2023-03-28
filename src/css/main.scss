@@ -16,6 +16,14 @@
 	100% { background-position: -5% 0; }
 }
 
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -24,10 +32,24 @@ html, body {
 body {
     position: relative;
     font-family: "Noto Sans KR", sans-serif;
-    margin: 0;
+    min-width: 1280px;
+    margin: 0 auto;
     padding: 0;
     border: 0;
-    // background-color: #050000;
+	line-height: 1.5;
+	text-transform: uppercase;
+	font-size: 1rem;
+	color: #fff;
+    background-color: #050000;
+    overflow: hidden visible;
+    @include mobile() {
+        width: 100%;
+        min-width: auto;
+    }
+}
+a {
+	text-decoration: none;
+	color: #fff;
 }
 p {
     margin: 0;
@@ -230,7 +252,7 @@ button {
             height: 100vh;
             min-height: 100vh;
             min-height: -webkit-fill-available; 
-            background-color: #000000;
+            // background-color: #000000;
             opacity: .7;
             z-index: 10000;
         }

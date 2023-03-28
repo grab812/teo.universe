@@ -31,8 +31,9 @@ $(function() {
 // nav toggle
 function navToggle(){
     $("#hamberger").on("click", function(){
-      $("nav").slideToggle();
-      $(this).toggleClass("active");
+    //   $("nav").slideToggle();
+    $("nav").toggleClass("open");
+    $(this).toggleClass("active");
   });
 }
 

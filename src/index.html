@@ -4,15 +4,15 @@
     @@include('./includes/metahead.html')
 </head>
 <body>
-    <div class="teo-header sec-full">
+    <header>
         @@include('./includes/header.html')
-    </div>
+    </header>
     <div id="teo">
         <!-- go top btn -->
         <div class="page-top-btn">
             <button type="button">위로</button>
         </div>
-        <!-- notice popup -->
+        <!-- notice popup 
         <div class="event-popup-wrap sec-guide">
             <div class="event-popup">
                 <div class="event-title">LIVE</div>
@@ -21,8 +21,8 @@
                 </div>
                 <a href="#" class="event-close">닫기버튼</a>
             </div>
-        </div>
-        <!-- news popup -->
+        </div>-->
+        <!-- news popup 
         <div class="news-popup-wrap">
             <div class="news-dimm"></div>
             <div class="news-popup">
@@ -30,17 +30,16 @@
                     <a href=""><img src="./images/news_popup_img.jpg" alt=""></a>
                 </div>
                 <a href="#" class="news-close">닫기버튼</a>
-                <!-- 2022.01.17 오늘하루보지않기 추가 -->
                 <p class="popup-check">
                     <input type="radio" class="popup-input" id="aaa" name="aaa" title="" value="">
                     <label for="aaa" class="popup-label selected">오늘 하루 보지않기<span></span></label>
                 </p>
             </div>
-        </div>
+        </div>-->
         <h1 class="hide">TEO.universe</h1>
     </div>
+    <footer>
+        @@include('./includes/footer.html')
+    </footer>
 </body>
-<footer>
-    @@include('./includes/footer.html')
-</footer>
 </html>
