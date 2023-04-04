@@ -8,6 +8,54 @@
         @@include('./includes/header.html')
     </header>
     <div id="teo">
+        <div class="intro">
+            <p>
+                Wellcome to the TEO.
+                Play your content, TEO.universe.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+        </div>
+        <script>
+            function textDisplay(ele) {
+                const textArray = ele.innerText.split('');
+                // const special = ['T', 'E', 'O', 'U', 'N', 'I', 'V', 'E', 'R', 'S', 'E', '에', '오', '신', '걸', '환', '영', '합', '니', '다'];
+                // const special = ['T', 'E', 'O', 'U', 'N', 'I', 'V', 'E', 'R', 'S', 'E'];
+                // const special = ['구', '독', '좋', '아', '요', '알', '림', '설', '정', '필', '수'];
+                const special = ['~', '@', '!', '#', '$', '%', '^', '&', '*']
+                const exception = [' ', '\n', '.', ',', ':', ')'];
+                const randomIntBetween = (min, max) => {
+                    return Math.floor(Math.random() * (max - min + 1) + min )
+                }
+                
+                const numArray = []
+                textArray.forEach(_ => {
+                    const num = randomIntBetween(5, 40)
+                    numArray.push(num)
+                });
+
+                let newText
+                let completeCount
+                const timer = setInterval(() => {
+                    completeCount = 0
+                    newText = ''
+                    numArray.forEach((num, i) => {
+                        if(exception.includes(textArray[i]) || numArray[i] === 0) {
+                            newText += textArray[i]
+                            completeCount += 1
+                        } else {
+                            newText += special[numArray[i] % special.length]
+                            numArray[i] = --num
+                        }
+                    })
+                    console.log(completeCount, numArray.length)
+                    ele.innerText = newText
+                    if (completeCount === numArray.length) clearInterval(timer)
+                }, 100)
+            } 
+
+            const p = document.querySelector('.intro p')
+                textDisplay(p)
+        </script>
         <!-- go top btn -->
         <div class="page-top-btn">
             <button type="button">위로</button>

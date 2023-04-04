@@ -354,3 +354,34 @@ button {
         }
     }
 }
+
+// 테스트
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+.intro {
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #020202;
+    font-family: 'VT323', monospace;
+    z-index: 12010021020102;
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 500px;
+        white-space: pre-line;
+        letter-spacing: 0.15rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #05d1e1;
+        filter: drop-shadow(0 0 1.5px #e4d808);
+    }
+}
