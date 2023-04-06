@@ -15,6 +15,15 @@ $(function() {
     // notice popup - 공지팝업닫기
     noticeMobalCLose();
 
+    // intro popup
+    if(document.querySelector('.intro')){
+        // 레트로 텍스트 애니메이션
+        var introTxt = document.querySelector('.intro-txt p');
+        ratroAni(introTxt);
+        // 인트로팝업닫기
+        introMobalCLose();
+    }
+
     /* 
 
     // go top btn - 상단이동버튼
@@ -124,3 +133,57 @@ var mainvisualSwipe = function(){
   }
   
 }
+
+// 레트로 텍스트 애니메이션
+var ratroAni = function textDisplay(ele) {
+    
+    const textArray = ele.innerText.split('');
+    // const special = ['T', 'E', 'O', 'U', 'N', 'I', 'V', 'E', 'R', 'S', 'E', '에', '오', '신', '걸', '환', '영', '합', '니', '다'];
+    // const special = ['T', 'E', 'O', 'U', 'N', 'I', 'V', 'E', 'R', 'S', 'E'];
+    // const special = ['구', '독', '좋', '아', '요', '알', '림', '설', '정', '필', '수'];
+    const special = ['~', '@', '!', '#', '$', '%', '^', '&', '*']
+    const exception = [' ', '\n', '.', ',', ':', ')'];
+    const randomIntBetween = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1) + min )
+    }
+    
+    const numArray = []
+    textArray.forEach(_ => {
+        const num = randomIntBetween(5, 40)
+        numArray.push(num)
+    });
+
+    let newText
+    let completeCount
+    const timer = setInterval(() => {
+        completeCount = 0
+        newText = ''
+        numArray.forEach((num, i) => {
+            if(exception.includes(textArray[i]) || numArray[i] === 0) {
+                newText += textArray[i]
+                completeCount += 1
+            } else {
+                newText += special[numArray[i] % special.length]
+                numArray[i] = --num
+            }
+        })
+        console.log(completeCount, numArray.length)
+        ele.innerText = newText
+        if (completeCount === numArray.length) clearInterval(timer);
+        
+    }, 100)
+    setInterval(() => {
+        document.querySelector('.intro-close').classList.add('show');
+    }, 3500)
+} 
+
+// 인트로팝업닫기
+var introMobalCLose = function () {
+            
+    var introMobal = document.querySelector('.intro');
+    var eventCloseBtn = document.querySelector('.intro-close');
+    eventCloseBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        introMobal.classList.add('hide');
+    });
+  }
