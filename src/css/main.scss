@@ -372,7 +372,7 @@ button {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,7 +383,7 @@ button {
     background-image: linear-gradient( 45deg, #ffd966 25%, transparent 25%, transparent 75%, #ffd966 75%, #ffd966 ), linear-gradient( -45deg, #ffd966 25%, transparent 25%, transparent 75%, #ffd966 75%, #ffd966 );
     background-size: 60px 60px;
     background-position: 0 0;
-    animation: slideMove 4s infinite linear;
+    animation: slideMove 3.5s infinite cubic-bezier(0.52, 0.04, 0.4, 1.15);
     &.hide {
         display: none;
     }
@@ -392,7 +392,7 @@ button {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
@@ -456,6 +456,74 @@ button {
             -webkit-user-select: none;
             -o-user-select: none;
             will-change: transform;
+        }
+    }
+}
+.visual {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 72px);
+    border: 1px solid #f00;
+}
+.sec {
+    margin: 0 auto;
+    width: 1300px;
+    box-sizing: border-box;
+    overflow: auto;
+    @include mobile() {
+        width: 100%;
+    }
+}
+
+.item {
+    padding-top: 50px;
+    width: 100%;
+    // margin: 50px auto;
+    text-align: center;
+    color: #FFF;
+    font-size: 1em;
+}
+
+.th-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    li {
+        position: relative;
+        width: 25%;
+        >a {
+            display: block;
+            margin: 0 auto 20px;
+            width: calc(100% - 35px);
+        }
+    }
+    .list-img {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        img {
+            display: block;
+            width: 100%;
+            height: fit-content;
+        }
+    }
+    strong {
+        font-weight: 300;
+    }
+    .category {
+        display: inline-block;
+        position: absolute;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        left: 0;
+        top: -14px;
+        transform: rotate(90deg);
+        font-weight: 700;
+        transform-origin: 0px 20px;
+        color: rgb(0, 115, 255);
+        &.drama {
+            color: rgb(127, 0, 255);
         }
     }
 }

@@ -1,6 +1,12 @@
 // window onload
 $(function() {
 
+
+    AOS.init({
+     duration: 1200,
+    })
+      
+
     // lazyload
     var lazyAll = new LazyLoad();
     // IE 이미지 objectfit
@@ -174,7 +180,7 @@ var ratroAni = function textDisplay(ele) {
     }, 100)
     setInterval(() => {
         document.querySelector('.intro-close').classList.add('show');
-    }, 3500)
+    }, 3700)
 } 
 
 // 인트로팝업닫기
