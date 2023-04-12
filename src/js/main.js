@@ -4,13 +4,15 @@ $(function() {
 
     AOS.init({
      duration: 1200,
-    })
-      
+    })      
 
     // lazyload
     var lazyAll = new LazyLoad();
     // IE 이미지 objectfit
     objectFitImages(document.querySelector('.objectFit'));
+
+    // go top btn - 상단이동버튼
+    goToTop();
 
     // Nav 토글버튼
     navToggle();
@@ -30,10 +32,10 @@ $(function() {
         introMobalCLose();
     }
 
-    /* 
+    // accordion FAQ
+    accordionFaq();
 
-    // go top btn - 상단이동버튼
-    goToTop();
+    /* 
 
     // 상단 Top Visual Swiper
     mainvisualSwipe();
@@ -51,7 +53,6 @@ function navToggle(){
     $(this).toggleClass("active");
   });
 }
-
 
 // go top btn - 상단이동버튼
 var goToTop = function () {
@@ -192,4 +193,16 @@ var introMobalCLose = function () {
         e.preventDefault();
         introMobal.classList.add('hide');
     });
-  }
+}
+
+// 아코디언 FAQ
+var accordionFaq = function() {
+    $('.collapse.in').prev('.panel-heading').addClass('active');
+    $('#accordion, #bs-collapse')
+      .on('show.bs.collapse', function(a) {
+        $(a.target).prev('.panel-heading').addClass('active');
+      })
+      .on('hide.bs.collapse', function(a) {
+        $(a.target).prev('.panel-heading').removeClass('active');
+      });
+}
