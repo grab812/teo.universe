@@ -32,6 +32,9 @@ $(function() {
         introMobalCLose();
     }
 
+    // cntSlider Swiper
+    cntSliderLoaded();
+
     // accordion FAQ
     accordionFaq();
 
@@ -205,4 +208,39 @@ var accordionFaq = function() {
       .on('hide.bs.collapse', function(a) {
         $(a.target).prev('.panel-heading').removeClass('active');
       });
+}
+
+
+// cntSlider Swiper
+var cntSliderLoaded = function () {
+    swiperNewContent = new Swiper('.cnt-swiper .mySwiper', {
+        // Responsive breakpoints
+        // breakpoints: {
+        //     // when window width is >= 640px
+        //     640: {
+        //         slidesPerView: 4,
+        //         slidesPerGroup: 4,
+        //         spaceBetween: 8,
+        //     },
+        //     // when window width is >= 1024px
+        //     1024: {
+        //         slidesPerView: 4,
+        //         slidesPerGroup: 4,
+        //         spaceBetween: 15,
+        //     }
+        // },
+        initialSlide: 1,    // 슬라이드 1번 = 0 , 슬라이드 2번 = 1 ... //
+        navigation: {
+            nextEl: '.cnt-swiper .swiper-button-next',
+            prevEl: '.cnt-swiper .swiper-button-prev',
+        },
+        pagination: {
+            el: ".cnt-swiper .swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    // setTimeout(function(){
+    //     objectFitImages($('.ui-contents .objectFit'));
+    // }, 0);
 }
