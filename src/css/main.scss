@@ -592,7 +592,7 @@ body {
         &.swiper-slide-active {
             strong, p, a {
                 animation: flowMotion cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
-                animation-delay: .3s;
+                animation-delay: .5s;
             }
             strong {
                 animation-duration: .3s;

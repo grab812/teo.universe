@@ -233,7 +233,7 @@ var cntSliderLoaded = function () {
         loop: true,
         speed: 1000,
         autoplay: {
-            delay: 3000,
+            delay: 2500,
         },
         slidesPerView: "auto",
         initialSlide: 1,    // 슬라이드 1번 = 0 , 슬라이드 2번 = 1 ... //
