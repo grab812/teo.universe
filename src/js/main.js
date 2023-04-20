@@ -59,7 +59,7 @@ function navToggle(){
 
 // go top btn - 상단이동버튼
 var goToTop = function () {
-  var TopBtn = document.querySelector('.page-top-btn');
+  var TopBtn = document.querySelector('.btn-page-top');
   window.addEventListener('scroll', function(e) {
       if ($(window).scrollTop() > 300) {
           TopBtn.classList.add('show');
@@ -229,6 +229,13 @@ var cntSliderLoaded = function () {
         //         spaceBetween: 15,
         //     }
         // },
+        centeredSlidesBounds: true,
+        loop: true,
+        speed: 1000,
+        autoplay: {
+            delay: 3000,
+        },
+        slidesPerView: "auto",
         initialSlide: 1,    // 슬라이드 1번 = 0 , 슬라이드 2번 = 1 ... //
         navigation: {
             nextEl: '.cnt-swiper .swiper-button-next',

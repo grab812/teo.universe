@@ -31,7 +31,7 @@ body {
 }
 #teo {
     /* go top btn */
-    .page-top-btn {
+    .btn-page-top {
         position: fixed;
         right: 1.25rem;
         bottom: 1.25rem;
@@ -563,12 +563,11 @@ body {
         width: 100%;
         height: 100%;
     }
-    
     .swiper-slide {
         text-align: center;
         font-size: 3rem;
-        // background: #fff;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         
@@ -584,13 +583,27 @@ body {
         &:nth-child(odd) {
             background-image: url("../images/main-key2.jpg");
         }
-    }
-
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &.swiper-slide-active {
+            strong, p, a {
+                animation: flowMotion cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+                animation-delay: .3s;
+            }
+            strong {
+                animation-duration: .3s;
+            }
+            p {
+                animation-duration: .7s;
+            }
+            a {
+                animation-duration: .9s;
+            }
+        }
     }
     .swiper-pagination {
         bottom: 20px;
@@ -612,6 +625,55 @@ body {
     }
     .swiper-button-prev {
         left: 20px;
+    }
+    @keyframes flowMotion{
+        0% {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate3d(0, 30px, 0);
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    strong, p, a {
+        display: block !important;
+        font-size: 4.5rem;
+        line-height: 1.7;
+        text-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+        opacity: 0;
+        visibility: hidden;
+    }
+    p {
+        padding: 25px 0;
+        font-size: 1.375rem;
+    }
+    a {
+        padding-right: 30px;
+        font-weight: 700;
+        font-size: 1.75rem;
+        // transform: translate3d(0, 40px, 0) !important;
+        color: #fff;
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            width: 12px;
+            height: 2px;
+            display: block;
+            transition: all 120ms;
+        }
+        &::before {
+            top: calc(50% + 4px);
+            transform: rotate(-45deg);
+        }
+        &::after {
+            top: calc(50% - 4px);
+            transform: rotate(45deg);
+        }
     }
 }
 
